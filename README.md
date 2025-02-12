@@ -42,7 +42,7 @@ Sesnor fusion can be executed using *Kalman Filter* which is under development b
 
 ### 5. **Visualization**
 
-- Full model and sensor data visualization in **RViz2**, providing insights into robot states and environmental feedback.
+Full model and sensor data visualization in **RViz2**, providing insights into robot states and environmental feedback.
 
 
 ## Installation and Usage
