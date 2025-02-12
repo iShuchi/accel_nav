@@ -10,14 +10,16 @@ The whole package is defined on prefix of **accel** under inspiration of develop
 
 - **accel_bringup** - This package contains launch files for spawning robot in Gazebo Harmonic, mapping environment using SLAM, localizaing and navigating autonomously.
 - **accel_description** - This package contains sdf files and meshes for both robot model and world whose warehouse library is customized to match the maze like world requirement as per the problem statement. 
-- **accel_control** - This package contains implementation of publishing occupancy grids on /map, subscribing to LiDAR on /laser_scan and provides service for shareing the map via publish_map_service inside header file namely control.hpp.
+- **accel_control** - This package contains implementation of publishing occupancy grids on /map, subscribing to LiDAR on /laser_scan and provides service for sharing the map via publish_map_service inside header file namely control.hpp.
 - **accel_localization** - This package contains header files for kalman filter, joystick controller and behavious tree.
 - **accel_navigation** - This package contains C++ node written to set initial pose, navigate to a waypoint given as input from user via terminal, print on the achievement of goal and proceed to next input until terminated.
 - **accel_msgs** - This package contains standard message files for communication.
 
 ### 1. **Simulated World**
 
-The warehouse library has been modified to contain maze-like environment, having walls as static obstacles. However the same *model.sdf* can be modified further to bring a dynamic obstacle on the map which will be avoided from collision during navigation using *navigation stack*. 
+The warehouse library has been modified to contain maze-like environment, having walls as static obstacles. However the same *model.sdf* can be modified further to bring a dynamic obstacle on the map which will be avoided from collision during navigation using *navigation stack*.
+
+**NOTE** - Mesh (.dae) files for robot model are owned by VCGLabs
 
 ### 2. **Onboard Sensors**
 
@@ -73,23 +75,25 @@ Sesnor fusion can be executed using *Kalman Filter* which is under development b
 
 6. **Autonomous Navigation**
     `ros2 launch accel_bringup localization.launch.py`
-    Change the fixed frame from *odom* to *map* and then add map from global costmap on RViz.
+    and then change the fixed frame from *odom* to *map* and then add map from global costmap on RViz.
 
     `ros2 launch accel_bringup amcl.launch.py`
-    Add map topic from local costmap on RViz and now the robot is ready to take **2D Pose Estimation** and **2D Goal Pose**
+    and then add map topic from local costmap on RViz and now the robot is ready to take **2D Pose Estimation** and **2D Goal Pose**.
 
     `ros2 run accel_navigation waypoint_navigation_node`
-    This node will initiate navigation using waypoint, waiting user to publish coordinate data from terminal
+    , this node will initiate navigation using waypoint, waiting user to publish coordinate data from terminal
 
     `ros2 topic pub /goal_input geometry_msgs/msg/Point "{x: 20.0, y: 20.0, z: 0.0}"`
-    This will publish target coordinates and will update correspondingly to C++ node along with navigation stack. However, despite of positive results in the terminal, no change is observed in Gazebo or RViz (***under-development***). Refer to image below.
+    which will publish target coordinates and will update correspondingly to C++ node along with navigation stack. However, despite of positive results in the terminal, no change is observed in Gazebo or RViz (***under-development***). Refer to image below.
 
     ![Communication Gap between Navigation Stack and Gazebo](waypoint-node.png)
 
 
-## Future Work
+## Under Development
 
-Resolving the communication issues because of which the gazebo topic of robot model is unable to take goal from terminal despite of updated navigation goal messages.
+1. The task of developing a C++ executable to send waypoints is almost accomplished but requires fixing of **BUG** to resolve the communication issues because of which the gazebo topic of robot model is unable to take goal from terminal despite of updated navigation goal messages.
+
+2. Testing of dynamic obstacles during navigation can be done by bringing moving actor which wasn't included due to time constraint, however the robot will avoid the dynamic obstacles using local costmap defined in the navigation stack.
 
 ## Gallery
 
