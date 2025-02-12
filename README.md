@@ -19,7 +19,7 @@ The whole package is defined on prefix of **accel** under inspiration of develop
 
 The warehouse library has been modified to contain maze-like environment, having walls as static obstacles. However the same *model.sdf* can be modified further to bring a dynamic obstacle on the map which will be avoided from collision during navigation using *navigation stack*.
 
-**NOTE** - Mesh (.dae) files for robot model are owned by VCGLabs
+**NOTE** - Mesh (.dae) files for robot model are owned by VCGLabs.
 
 ### 2. **Onboard Sensors**
 
