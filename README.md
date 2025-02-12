@@ -59,7 +59,7 @@ Full model and sensor data visualization in **RViz2**, providing insights into r
 
 4. **Spawning in the Simulation**:
     `ros2 launch accel_bringup accel_spawn.launch.py`
-    If frames aren't loaded in the RViz then simply play the pause button available on bottom-left of Gazebo Simulator
+    , if frames aren't loaded in the RViz then simply play the pause button available on bottom-left of Gazebo Simulator
 
 5. **Mapping using SLAM Tool-Box**:
     `ros2 launch accel_bringup slam.launch.py`
