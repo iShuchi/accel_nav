@@ -1,0 +1,132 @@
+<?xml version='1.0'?>
+<sdf version="1.7">
+    <!-- Original: Warehouse Model -->
+    <model name="warehouse">
+        <pose>0 0 0 0 0 0</pose>
+        <static>1</static>
+
+        <!-- Original: Base warehouse structure -->
+        <link name="warehouse_base">
+            <pose>0 0 0 0 0 0</pose>
+            <collision name="warehouse_collision">
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>meshes/warehouse_colision.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="warehouse_visual">
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>meshes/warehouse.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name="drop_area_visual">
+                <pose>0 0 0.101 0 0 0</pose>
+                <!-- x y z R P Y -->
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>meshes/warehouse.dae</uri>
+                        <submesh>
+                            <name>drop1</name>
+                            <center>true</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+
+        <!-- New Addition: Maze Walls -->
+        <!-- Wall 1: Horizontal wall -->
+        <!-- <link name="wall1">
+            <pose>4 -4 0 0 0 0</pose> 
+            <collision name="wall1_collision">
+                <geometry>
+                    <box>
+                        <size>4 0.2 1</size> 
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="wall1_visual">
+                <geometry>
+                    <box>
+                        <size>4 0.2 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.6 0.6 0.6 1</ambient>
+                </material>
+            </visual>
+        </link> -->
+
+        Wall 2: Vertical wall
+        <link name="wall2">
+            <pose>2 4 0 0 0 0</pose>
+            <collision name="wall2_collision">
+                <geometry>
+                    <box>
+                        <size>0.2 20 1</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="wall2_visual">
+                <geometry>
+                    <box>
+                        <size>0.2 20 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.6 0.6 0.6 1</ambient>
+                </material>
+            </visual>
+        </link>
+
+        <!-- Wall 3: Another horizontal wall -->
+        <link name="wall3">
+            <pose>-4 2 0 0 0 0</pose>
+            <collision name="wall3_collision">
+                <geometry>
+                    <box>
+                        <size>4 0.2 1</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="wall3_visual">
+                <geometry>
+                    <box>
+                        <size>4 0.2 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.6 0.6 0.6 1</ambient>
+                </material>
+            </visual>
+        </link>
+
+        <!-- Wall 4: Another vertical wall -->
+        <link name="wall4">
+            <pose>-2 -4 0 0 0 0</pose>
+            <collision name="wall4_collision">
+                <geometry>
+                    <box>
+                        <size>0.2 20 1</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="wall4_visual">
+                <geometry>
+                    <box>
+                        <size>0.2 20 1</size>
+                    </box>
+                </geometry>
+                <material>
+                    <ambient>0.6 0.6 0.6 1</ambient>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>
