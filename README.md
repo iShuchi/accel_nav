@@ -6,7 +6,7 @@ This project presents a simulation model for autonomous navigation of a mobile r
 
 ## Summary
 
-This package, namely **accel_nav** is followed by sub-packages bringup, control, description, localization, navigation and msgs.
+This package, namely **accel_nav** is followed by sub-packages bringup, control, description, localization, navigation and msgs. Functions of each are defined as follows -
 
 - **accel_bringup** - This package contains launch files for spawning robot in Gazebo Harmonic, mapping environment using SLAM, localizing and navigating autonomously.
 - **accel_description** - This package contains sdf files and meshes for both robot model and world whose warehouse library is customized to match the maze like world requirement as per the problem statement. 
