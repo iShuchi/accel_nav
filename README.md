@@ -2,7 +2,7 @@
 
 This project presents a simulation model for autonomous navigation of a mobile robot using **ROS2 Humble** and the **Gazebo Harmonic**. The model integrates LiDAR, Camera, and Wheel Odometry to implement **SLAM ToolBox**, **AMCL** and **Nav2** and for mapping, localization and autonomous navigation respectively.
 
-![Autonomous Navigation](2D-Goal-Pose.mkv)
+![Autonomous Navigation](2D-Goal-Pose.gif)
 
 ## Summary
 
@@ -67,7 +67,7 @@ Full model and sensor data visualization in **RViz2**, providing insights into r
     To map the environment, add map topic on RViz and move the robot by publishing velocities using
     `ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" -r 10`
 
-    After building the entire map, the map can be saved using commanmd,
+    After building the entire map, the map can be saved using command,
     `ros2 run nav2_map_server map_saver_cli -f map_name`
 
     **NOTE** - Map of the environment with .yaml and .pgm file is already saved inside ***maps*** directory of ***accel_bringup*** package which can be directly used for navigation.
