@@ -2,7 +2,7 @@
 
 This project presents a simulation model for autonomous navigation of a mobile robot using **ROS2 Humble** and the **Gazebo Harmonic**. The model integrates LiDAR, Camera, and Wheel Odometry to implement **SLAM ToolBox**, **AMCL** and **Nav2** and for mapping, localization and autonomous navigation respectively.
 
-![Autonomous Navigation](2D-Goal-Pose.gif)
+![Autonomous Navigation](/gallery/2D-Goal-Pose.gif)
 
 ## Summary
 
@@ -84,6 +84,4 @@ Full model and sensor data visualization in **RViz2**, providing insights into r
     , this node will initiate navigation using waypoint, waiting user to publish coordinate data from terminal
 
     `ros2 topic pub /goal_input geometry_msgs/msg/Point "{x: 20.0, y: 20.0, z: 0.0}"`
-    which will publish target coordinates and will update correspondingly to C++ node along with navigation stack. However, despite of positive results in the terminal, no change is observed in Gazebo or RViz (***under-development***). Refer to image below.
-
-    ![Communication Gap between Navigation Stack and Gazebo](waypoint-node.png)
+    which will publish target coordinates and will update correspondingly to C++ node along with navigation stack. However, despite of positive results in the terminal, no change is observed in Gazebo or RViz (***under-development***).
