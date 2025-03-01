@@ -2,17 +2,17 @@
 
 This project presents a simulation model for autonomous navigation of a mobile robot using **ROS2 Humble** and the **Gazebo Harmonic**. The model integrates LiDAR, Camera, and Wheel Odometry to implement **SLAM ToolBox**, **AMCL** and **Nav2** and for mapping, localization and autonomous navigation respectively.
 
-![Autonomous Navigation](2D-Goal-Pose.png)
+![Autonomous Navigation](2D-Goal-Pose.mkv)
 
-## Workspace Summary
+## Summary
 
-The whole package is defined on prefix of **accel** under inspiration of developing this project to complete navigation task provided by **Acceleration Robotics**. This package, namely **accel_nav** is followed by sub-packages bringup, control, description, localization, navigation and msgs.
+This package, namely **accel_nav** is followed by sub-packages bringup, control, description, localization, navigation and msgs.
 
-- **accel_bringup** - This package contains launch files for spawning robot in Gazebo Harmonic, mapping environment using SLAM, localizaing and navigating autonomously.
+- **accel_bringup** - This package contains launch files for spawning robot in Gazebo Harmonic, mapping environment using SLAM, localizing and navigating autonomously.
 - **accel_description** - This package contains sdf files and meshes for both robot model and world whose warehouse library is customized to match the maze like world requirement as per the problem statement. 
 - **accel_control** - This package contains implementation of publishing occupancy grids on /map, subscribing to LiDAR on /laser_scan and provides service for sharing the map via publish_map_service inside header file namely control.hpp.
-- **accel_localization** - This package contains header files for kalman filter, joystick controller and behavious tree.
-- **accel_navigation** - This package contains C++ node written to set initial pose, navigate to a waypoint given as input from user via terminal, print on the achievement of goal and proceed to next input until terminated.
+- **accel_localization** - This package contains header files for *Extended Kalman Filter (EKF)*, joystick controller and *Behavior Tree (BT)*.
+- **accel_navigation** - This package contains C++ node written to set initial pose and autonomously navigate to a waypoint provided via terminal.
 - **accel_msgs** - This package contains standard message files for communication.
 
 ### 1. **Simulated World**
@@ -30,7 +30,7 @@ The warehouse library has been modified to contain maze-like environment, having
 
 ### 3. **Mapping and Autonomous Navigation**
 
-- **SLAM** techniques implemented for real-time mapping and understanding of the environment.
+- **SLAM (Simultaneous Localization and Mapping)** techniques implemented for real-time mapping and understanding of the environment.
 - **AMCL (Adaptive Monte Carlo Localization)** for improved positional accuracy.
 - Integrated with the **Nav2 Stack** for autonomous navigation.
 - **Fine-tuned** parameters for optimized and increased efficiency in navigation performance.
@@ -38,7 +38,7 @@ The warehouse library has been modified to contain maze-like environment, having
 
 ### 4. **Additional**
 
-Sesnor fusion can be executed using *Kalman Filter* which is under development but available inside workspace.
+Sensor fusion can be executed using *Kalman Filter* which is under development but available inside workspace.
 
 ### 5. **Visualization**
 
@@ -87,14 +87,3 @@ Full model and sensor data visualization in **RViz2**, providing insights into r
     which will publish target coordinates and will update correspondingly to C++ node along with navigation stack. However, despite of positive results in the terminal, no change is observed in Gazebo or RViz (***under-development***). Refer to image below.
 
     ![Communication Gap between Navigation Stack and Gazebo](waypoint-node.png)
-
-
-## Under Development
-
-1. The task of developing a C++ executable to send waypoints is almost accomplished but requires fixing of **BUG** to resolve the communication issues because of which the gazebo topic of robot model is unable to take goal from terminal despite of updated navigation goal messages.
-
-2. Testing of dynamic obstacles during navigation can be done by bringing moving actor which wasn't included due to time constraint, however the robot will avoid the dynamic obstacles using local costmap defined in the navigation stack.
-
-## Gallery
-
-Drive Link - [Simulation videos and Images](https://drive.google.com/drive/folders/1ItsTxGNiisjuD24GJPkhzQUjMlxe-0Mv?usp=sharing)
